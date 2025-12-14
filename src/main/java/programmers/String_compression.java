@@ -7,6 +7,11 @@ public class String_compression {
 		String s = "abcabcabcabcdededededede";
         int answer = 0;
         List<Integer> list = new ArrayList<>();
+        //문자열이 1일경우 list에 압축문자열의 길이를 넣는 for문이 안돎
+        //그래서 예외처리 해줘야함
+//        if(s.length() == 1) {
+//        	return 1;
+//        }
         for(int i = 1; i < s.length(); ++i){
             int len = getLength(s,i);
             if(!list.contains(len)) {
