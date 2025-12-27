@@ -12,20 +12,27 @@ public class Open_chatRoom {
 	
 	public static void main(String[] args) {
 		String[] record = {"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"};
+		String[] answer = {};
         Map<String,String> room = making_room(); //채팅방 생성
-        List<String[]> message = new LinkedList<>();
+        List<String[]> message = new LinkedList<>(); //메세지 목록 생성
         
         //채팅방 상태갱신
         for(int i = 0; i < record.length; ++i){
             String[] command = get_command(record[i]);
             executing_command(command, room, message);
         }
-        System.out.println(room); //테스트
-        System.out.println("메세지 목록"); // 테스트
+        answer = new String[message.size()]; 
+    
         for(int i = 0; i < message.size(); ++i){
             message.get(i)[0] = room.get(message.get(i)[0]); //유저 아이디 -> 닉네임으로 치환
-            System.out.println(Arrays.toString(message.get(i))); //테스트
+            if(message.get(i)[1].equals("Enter")){
+                answer[i] = message.get(i)[0] + "님이 들어왔습니다.";
+            }else{
+                answer[i] = message.get(i)[0] + "님이 나갔습니다.";
+
+            }
         }
+        System.out.println(Arrays.toString(answer)); //테스트 출력
 	}
 	
 	 //채팅방 생성
@@ -46,7 +53,6 @@ public class Open_chatRoom {
             map.put(arr[1],arr[2]);
             list.add(new String[] {arr[1],arr[0]});
         }else if(arr[0].equals("Leave")) { //퇴장
-            map.remove(arr[1]);
             list.add(new String[] {arr[1],arr[0]});
         }else { // 닉네임 변경
             map.put(arr[1],arr[2]);
