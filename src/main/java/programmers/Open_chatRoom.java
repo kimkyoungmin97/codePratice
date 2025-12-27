@@ -1,8 +1,8 @@
 package programmers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +14,7 @@ public class Open_chatRoom {
 		String[] record = {"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"};
 		String[] answer = {};
         Map<String,String> room = making_room(); //채팅방 생성
-        List<String[]> message = new LinkedList<>(); //메세지 목록 생성
+        List<String[]> message = new ArrayList<>(); //메세지 목록 생성
         
         //채팅방 상태갱신
         for(int i = 0; i < record.length; ++i){
