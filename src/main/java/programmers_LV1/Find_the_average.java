@@ -1,3 +1,4 @@
+package programmers_LV1;
 
 public class Find_the_average {
 	
